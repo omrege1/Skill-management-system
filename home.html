@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        header {
+background-color: white ;
+position: fixed;
+left: 0;
+right: 0;
+top: 5px;
+height: 30px;
+display: flex;
+align-items: center;
+box-shadow: 0 0 25px 0 black;
+}
+header * {
+display: inline;
+}
+header li {
+margin: 20px;
+}
+header li a {
+color: blue;
+text-decoration: none;
+}
+        
+        body {
+            margin: 0;
+            font-family: Arial;
+            font-size: 17px;
+        }
+        
+        #myVideo {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+        }
+        
+        .content {
+            position: fixed;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            color: #f1f1f1;
+            width: 100%;
+            padding: 20px;
+        }
+        
+        #myBtn {
+            width: 200px;
+            font-size: 18px;
+            padding: 10px;
+            border: none;
+            background: #000;
+            color: #fff;
+            cursor: pointer;
+        }
+        
+        #myBtn:hover {
+            background: #ddd;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    
+<header>
+<nav>
+<ul>
+<li>
+<a href="Signup.html">Sign Up</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Home </a>
+</li>
+<li>
+<a href="#"> About us </a>
+</li>
+<li>
+<a href="#"> Contact </a>
+</li>
+</ul>
+</nav>
+</header>
+
+
+    <div class="content">
+
+
+        <h1 align="center" style="color:rosybrown">STUDENT REGISTRATION FORM</h1>
+        <h3 align="center" style="color:lavenderblush;">
+
+
+      
+        </h3>
+        <br/>
+
+        <h1 align="center" style="color:lavenderblush;">
+
+
+            <font face="Lato" colour="majanta" size="6">
+                LOGIN
+            </font>
+        </h1>
+          
+
+        <center>
+            <form onsubmit ="return verifyPassword()" method="post" action="javascript.html">
+                User Name:<input type="text" name="User Name" required minlength="3" maxlength="10"><br><br> 
+                Password :<input type="password" name="Password" required minlength="3" maxlength="10>
+                <span id = "message" style="color:black"> </span> <br><br>
+                 <!-- Click to verify valid password -->
+              <input type = "submit" value = "Submit">
+
+               <!-- Click to reset fields -->
+              <button type = "reset" value = "Reset" >Reset</button>
+               </form>
+
+            <button id="myBtn" onclick="myFunction()">Pause</button>
+    </div>
+
+    <script>
+        var video = document.getElementById("myVideo");
+        var btn = document.getElementById("myBtn");
+
+        function myFunction() {
+            if (video.paused) {
+                video.play();
+                btn.innerHTML = "Pause";
+            } else {
+                video.pause();
+                btn.innerHTML = "Play";
+            }
+        }
+    </script>
+
+
+</body>
+
+</html>
