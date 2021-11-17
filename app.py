@@ -8,7 +8,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///todo.db"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
-x=sys.argv[0]
+x=sys.argv[1]
 class Todo(db.Model):
     sno = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(200), nullable=False)
@@ -21,7 +21,7 @@ class Todo(db.Model):
 @app.route('/', methods=['GET', 'POST'])
 
 def hello_world():
-    if request.method=='POST' and x=='world':
+    if request.method=='POST' and x=='param1':
         return redirect(url_for("products"))
     return render_template('main.php')
    

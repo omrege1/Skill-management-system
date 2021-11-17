@@ -1,8 +1,10 @@
 <?php
+session_start();
 
-    $connect=mysqli_connect("localhost","root","","todo") or die("Connection Failed");
+    $connect=mysqli_connect("localhost","root","","todo");
 
-    if(!empty($_POST['save']))
+
+    if(isset($_POST['save']))
     {
         $username=$_POST['un'];
         $password=$_POST['pw'];
@@ -12,9 +14,32 @@
         if($count==1)
         {
             echo '<script>alert("Login succesful")</script>';
-            header("Location: website.html");
-            
+            header("Location: databasesave.php");
+            $_SESSION['a']='a';
+            /*$firstname =$_POST['fname'];
+            $lastname =$_POST['lname'];
+            if(isset($_POST['submit']) && !empty($_POST['submit'])){
+            $insertquery="insert into login(firstname,lastname) values('$firstname','$lastname')";
+            $res=mysqli_query($connect,$insertquery);
+            if($res){
+                ?>
+                <script>
+                    alert("data inserted properly");
+                </script>
+                <?php
+            }
         }
+            else{
+                ?>
+                <script>
+                    alert("data inserted properly");
+                </script>
+                <?php
+            }
+
+            */
+        }
+        
         else
         {
             echo '<script>alert("Login unsuccesful")</script>';
@@ -134,3 +159,5 @@
             </div>
          </div>
       </div>
+
+    
