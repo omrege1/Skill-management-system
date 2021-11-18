@@ -1,21 +1,25 @@
 <?php
-session_start();
 
-    $connect=mysqli_connect("localhost","root","","todo");
-
+$hostname="localhost";
+$username="root";
+$password="";
+$databasename="todo";
+$connect=new mysqli($hostname,$username,$password,$databasename);
 
     if(isset($_POST['save']))
-    {
+    {   session_start();
         $username=$_POST['un'];
         $password=$_POST['pw'];
+        $_SESSION['username']=$username;
         $query="select * from login where username='$username' and password='$password'";
         $result=mysqli_query($connect,$query);
         $count=mysqli_num_rows($result);
+        
         if($count==1)
         {
             echo '<script>alert("Login succesful")</script>';
-            header("Location: databasesave.php");
-            $_SESSION['a']='a';
+            header("Location: databasesave1.php");
+            
             /*$firstname =$_POST['fname'];
             $lastname =$_POST['lname'];
             if(isset($_POST['submit']) && !empty($_POST['submit'])){
@@ -44,7 +48,10 @@ session_start();
         {
             echo '<script>alert("Login unsuccesful")</script>';
         }
+        
     }
+
+   
 
 ?>
 
