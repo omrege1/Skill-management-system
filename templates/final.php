@@ -30,7 +30,18 @@ if(isset($_POST['save'])){
     #session_start();
     $name =$_POST['name'];
     $phone =$_POST['phone'];
-    $sql="UPDATE data SET Name = '$name', Phone = '$phone' ,  WHERE username= 'admin' ";
+    $email=$_POST['email'];
+    $address=$_POST['address'];
+    $linkedn=$_POST['linkedn'];
+    $git=$_POST['git'];
+    $career=$_POST['career'];
+    $work=$_POST['work'];
+    $academic=$_POST['academic'];
+    $skill1=$_POST['skill1'];
+    $skill2=$_POST['skill2'];
+    $skill3=$_POST['skill3'];
+    $cer=$_POST['certifications'];
+    $sql="UPDATE data SET Name = '$name', Phone = '$phone', Email='$email', Address='$address', Linkedn='$linkedn', Github='$git', Career='$career', Experience='$work', Qualification='$academic', Proficients='$skill1', Intermediates='$skill2', Basics='$skill3', Certifications='$cer'  WHERE username='admin' ";
     #$res=mysqli_query($conn,$query);
         if($conn->query($sql)==TRUE){
             echo 'data inserted';
@@ -78,41 +89,150 @@ if(isset($_POST['save'])){
     <h2 class="text-center my-2">RESUME GENERATOR</h2>
     <div class="row">
         <div class="col-md-6">
+            <form method="POST" id="myfrm">
             <div class="form-group">
                 <h4 class="mt-2">PERSONAL INFORMATION</h4>
+                
                 <label for="Name" >NAME</label>
-                <input type="text" name="name" id="Name"class="form-control"/>
+                <input type="text" name="name" id="Name"class="form-control" value="<?php 
+          $hostname="localhost";
+          $username="root";
+          $password="";
+          $databasename="todo";
+          $connect=new mysqli($hostname,$username,$password,$databasename);
+          #session_start();
+          #$id=$_SESSION['username'];
+          $sql1="SELECT Name FROM data WHERE username= 'admin' ";
+          $result=mysqli_query($connect,$sql1);
+          $count=mysqli_num_rows($result);
+          if($count==1){
+            $row=mysqli_fetch_assoc($result);
+            echo $row['Name'];} #session_destroy();?>" required>
             </div>
+
+
             <div class="form-group mt-2 ">
                
                 <label for="profile_pic" >SELECT YOUR PROFILE PHOTO</label>
-                <input type="file" id="profile_pic" accept="image/jpeg/png/jpg" class="form-control"/>
+                <input type="file" id="profile_pic" accept="image/jpeg/png/jpg" class="form-control" value="<?php 
+          $hostname="localhost";
+          $username="root";
+          $password="";
+          $databasename="todo";
+          $connect=new mysqli($hostname,$username,$password,$databasename);
+          #session_start();
+          #$id=$_SESSION['username'];
+          $sql1="SELECT firstname FROM login WHERE username= 'admin1' ";
+          $result=mysqli_query($connect,$sql1);
+          $count=mysqli_num_rows($result);
+          if($count==1){
+            $row=mysqli_fetch_assoc($result);
+            echo $row['firstname'];} #session_destroy();?>" required>
+
+
+
+
+
+
             </div>
             <div class="form-group mt-2 ">
                
                 <label for="Phone Number" >PHONE NUMBER</label>
-                <input type="text" name="phone" id="Phone Number"class="form-control"/>
+                <input type="text" name="phone" id="Phone Number"class="form-control"value="<?php 
+          $hostname="localhost";
+          $username="root";
+          $password="";
+          $databasename="todo";
+          $connect=new mysqli($hostname,$username,$password,$databasename);
+          #session_start();
+          #$id=$_SESSION['username'];
+          $sql1="SELECT Phone FROM data WHERE username= 'admin' ";
+          $result=mysqli_query($connect,$sql1);
+          $count=mysqli_num_rows($result);
+          if($count==1){
+            $row=mysqli_fetch_assoc($result);
+            echo $row['Phone'];} #session_destroy();?>">
             </div>
+
+
             <div class="form-group mt-2 " >
                
                 <label for="Email" >EMAIL</label>
-                <input type="email" id="Email"class="form-control"/>
+                <input type="email" name="email" id="Email"class="form-control" value="<?php 
+          $hostname="localhost";
+          $username="root";
+          $password="";
+          $databasename="todo";
+          $connect=new mysqli($hostname,$username,$password,$databasename);
+          #session_start();
+          #$id=$_SESSION['username'];
+          $sql1="SELECT Email FROM data WHERE username= 'admin' ";
+          $result=mysqli_query($connect,$sql1);
+          $count=mysqli_num_rows($result);
+          if($count==1){
+            $row=mysqli_fetch_assoc($result);
+            echo $row['Email'];} #session_destroy();?>">
             </div>
+
+
             <div class="form-group mt-2 ">
                
                 <label for="Address" >PERMANENT ADDRESS</label>
-                <textarea  id="Address"class="form-control" rows="3"></textarea> 
+                <textarea  id="Address" name="address" class="form-control" rows="4"><?php 
+          $hostname="localhost";
+          $username="root";
+          $password="";
+          $databasename="todo";
+          $connect=new mysqli($hostname,$username,$password,$databasename);
+          #session_start();
+          #$id=$_SESSION['username'];
+          $sql1="SELECT Address FROM data WHERE username= 'admin' ";
+          $result=mysqli_query($connect,$sql1);
+          $count=mysqli_num_rows($result);
+          if($count==1){
+            $row=mysqli_fetch_assoc($result);
+            echo $row['Address'];} #session_destroy();?> </textarea> 
             </div>
+
+
             <div class="text-secondary mt-2">IMPORTANT LINKS</div>
             <div class="form-group mt-2 ">
                
                 <label for="Linkedin_link" >LINKEDIN_LINK</label>
-                <input type="text" id="Linkedin_link"class="form-control"/>
+                <input type="text" name="linkedn" id="Linkedin_link"class="form-control" value="<?php 
+          $hostname="localhost";
+          $username="root";
+          $password="";
+          $databasename="todo";
+          $connect=new mysqli($hostname,$username,$password,$databasename);
+          #session_start();
+          #$id=$_SESSION['username'];
+          $sql1="SELECT Linkedn FROM data WHERE username= 'admin' ";
+          $result=mysqli_query($connect,$sql1);
+          $count=mysqli_num_rows($result);
+          if($count==1){
+            $row=mysqli_fetch_assoc($result);
+            echo $row['Linkedn'];} #session_destroy();?>">
             </div>
+
+
             <div class="form-group mt-2 ">
                
                 <label for="Github_link" >GITHUB PROFILE</label>
-                <input type="text" id="Github_link"class="form-control"/>
+                <input type="text" name="git" id="Github_link"class="form-control" value="<?php 
+          $hostname="localhost";
+          $username="root";
+          $password="";
+          $databasename="todo";
+          $connect=new mysqli($hostname,$username,$password,$databasename);
+          #session_start();
+          #$id=$_SESSION['username'];
+          $sql1="SELECT Github FROM data WHERE username= 'admin' ";
+          $result=mysqli_query($connect,$sql1);
+          $count=mysqli_num_rows($result);
+          if($count==1){
+            $row=mysqli_fetch_assoc($result);
+            echo $row['Github'];} #session_destroy();?>">
             </div>
             
         </div>
@@ -121,49 +241,156 @@ if(isset($_POST['save'])){
             <h4 class="mt-2">PROFESSIONAL INFORMATION</h4>
             <div class="form-group mt-2 ">
                 <label for="Objectives" >CAREER OBJECTIVES</label>
-                <textarea  id="Objectives"class="form-control" rows="3"></textarea> 
+                <textarea  id="Objectives" name="career" class="form-control" rows="3"><?php 
+          $hostname="localhost";
+          $username="root";
+          $password="";
+          $databasename="todo";
+          $connect=new mysqli($hostname,$username,$password,$databasename);
+          #session_start();
+          #$id=$_SESSION['username'];
+          $sql1="SELECT Career FROM data WHERE username= 'admin' ";
+          $result=mysqli_query($connect,$sql1);
+          $count=mysqli_num_rows($result);
+          if($count==1){
+            $row=mysqli_fetch_assoc($result);
+            echo $row['Career'];} #session_destroy();?></textarea> 
             </div>
+
             <div class="form-group mt-2 ">
                 <label for="weField" >WORK EXPERIENCE</label>
-                <textarea  class="form-control " id="weField" rows="2"></textarea>
+                <textarea  class="form-control" name="work" id="weField" rows="2"><?php 
+          $hostname="localhost";
+          $username="root";
+          $password="";
+          $databasename="todo";
+          $connect=new mysqli($hostname,$username,$password,$databasename);
+          #session_start();
+          #$id=$_SESSION['username'];
+          $sql1="SELECT Experience FROM data WHERE username= 'admin' ";
+          $result=mysqli_query($connect,$sql1);
+          $count=mysqli_num_rows($result);
+          if($count==1){
+            $row=mysqli_fetch_assoc($result);
+            echo $row['Experience'];} #session_destroy();?></textarea>
             </div>
             
             <div class="form-group mt-2 " >
                 <label for="aqField" >ACADEMIC QUALIFICATION</label>
-                <textarea class="form-control" id="aqField" rows="2"></textarea>
+                <textarea class="form-control" name="academic" id="aqField" rows="2"><?php 
+          $hostname="localhost";
+          $username="root";
+          $password="";
+          $databasename="todo";
+          $connect=new mysqli($hostname,$username,$password,$databasename);
+          #session_start();
+          #$id=$_SESSION['username'];
+          $sql1="SELECT Qualification FROM data WHERE username= 'admin' ";
+          $result=mysqli_query($connect,$sql1);
+          $count=mysqli_num_rows($result);
+          if($count==1){
+            $row=mysqli_fetch_assoc($result);
+            echo $row['Qualification'];} #session_destroy();?></textarea>
             </div>
            
             <div class="form-group mt-2 ">
                
                 <label for="Skill1" >PROFICIENT SKILL</label>
-                <input type="text" id="Skill1"class="form-control"/>
+                <input type="text" id="Skill1" name="skill1" class="form-control" value="<?php 
+          $hostname="localhost";
+          $username="root";
+          $password="";
+          $databasename="todo";
+          $connect=new mysqli($hostname,$username,$password,$databasename);
+          #session_start();
+          #$id=$_SESSION['username'];
+          $sql1="SELECT Proficients FROM data WHERE username= 'admin' ";
+          $result=mysqli_query($connect,$sql1);
+          $count=mysqli_num_rows($result);
+          if($count==1){
+            $row=mysqli_fetch_assoc($result);
+            echo $row['Proficients'];} #session_destroy();?>">
             </div>
+
+
             <div class="form-group mt-2 ">
                
                 <label for="Skill2" >INTERMEDIATE SKILL</label>
-                <input type="text" id="Skill2"class="form-control"/>
+                <input type="text" id="Skill2" name="skill2" class="form-control"value="<?php 
+          $hostname="localhost";
+          $username="root";
+          $password="";
+          $databasename="todo";
+          $connect=new mysqli($hostname,$username,$password,$databasename);
+          #session_start();
+          #$id=$_SESSION['username'];
+          $sql1="SELECT Intermediates FROM data WHERE username= 'admin' ";
+          $result=mysqli_query($connect,$sql1);
+          $count=mysqli_num_rows($result);
+          if($count==1){
+            $row=mysqli_fetch_assoc($result);
+            echo $row['Intermediates'];} #session_destroy();?>">
             </div>
+
+
             <div class="form-group mt-2 ">
                
                 <label for="Skill3" >BASIC SKILL</label>
-                <input type="text" id="Skill3"class="form-control"/>
+                <input type="text" id="Skill3" name="skill3" class="form-control" value="<?php 
+          $hostname="localhost";
+          $username="root";
+          $password="";
+          $databasename="todo";
+          $connect=new mysqli($hostname,$username,$password,$databasename);
+          #session_start();
+          #$id=$_SESSION['username'];
+          $sql1="SELECT Basics FROM data WHERE username= 'admin' ";
+          $result=mysqli_query($connect,$sql1);
+          $count=mysqli_num_rows($result);
+          if($count==1){
+            $row=mysqli_fetch_assoc($result);
+            echo $row['Basics'];} #session_destroy();?>">
             </div>
             
 
 
             <div class="form-group mt-2 " >
                 <label for="cert_field" >CERTIFICATIONS</label>
-                <textarea class="form-control" id="certField" rows="1"></textarea>
+                <textarea class="form-control" id="certField" name="certifications" rows="1"><?php 
+          $hostname="localhost";
+          $username="root";
+          $password="";
+          $databasename="todo";
+          $connect=new mysqli($hostname,$username,$password,$databasename);
+         
+          #$id=$_SESSION['username'];
+          $sql1="SELECT Certifications FROM data WHERE username= 'admin' ";
+          $result=mysqli_query($connect,$sql1);
+          $count=mysqli_num_rows($result);
+          if($count==1){
+            $row=mysqli_fetch_assoc($result);
+            echo $row['Certifications'];} ?></textarea>
             </div>
             
 
         </div>
+
+       
     <div class="container text-center mt-2">
-            <button onclick="Generate_cv()"class="btn btn-primary btn-large">Generate Resume</button>
-            <input type="button" name="save" class="btn btn-primary btn-sm"  value="Save">
+            <input type="submit" onclick="Generate_cv(); return false"class="btn btn-primary btn-large" value="GenerateResume">
+            <input type="submit"  name="save" class="btn btn-primary btn-sm"  value="Save">
+           
+           
     </div>
+    
+    
     </div>
+    </form>
+
 </div>
+
+          
+
 
 
 <div class="container"id="cv_template">
@@ -211,7 +438,8 @@ if(isset($_POST['save'])){
                 <div class="card-body"id="Template_cert"><p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Placeat eos temporibus cum quod corporis, non nobis molestiae rerum atque ratione quas, laboriosam facere maiores repellendus debitis iste dignissimos nostrum provident! Modi odio nam, ut mollitia voluptates repudiandae culpa perspiciatis, corporis saepe necessitatibus velit quasi, quibusdam obcaecati. Deserunt quos ipsa nulla.</p></div>
             </div>
             <div class="container mt-3 text-center">
-                <button onclick="print_cv()"class="btn left_background">PRINT RESUME</button>
+                <button onclick="print_cv()" class="btn left_background">PRINT RESUME</button>
+            
             </div>
         </div>
 

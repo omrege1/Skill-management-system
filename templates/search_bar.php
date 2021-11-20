@@ -42,19 +42,21 @@
 </style>
 </head>
 <body>
-<table align="center">
+<table align="center" width="600" border="1" cellpadding="1" cellspacing="1">
     <tr>
         <th> firstname</th>
         <th> lastname </th>
     </tr>
     <?php
+        $search=$_POST["search"];
+        if(isset($_POST['submit'])){
         $hostname="localhost";
         $username="root";
         $password="";
         $databasename="todo";
         $conn=new mysqli($hostname,$username,$password,$databasename);
-
-        $query="SELECT * FROM login where skill like '%python%' ";
+        
+        $query="SELECT * FROM login where skill like '%$search%' ";
         $result= $conn->query($query);
         if($result->num_rows>0){
             while($row=$result->fetch_assoc()){
@@ -66,4 +68,5 @@
         else{
             echo "No results";
         }
+    }
     ?>

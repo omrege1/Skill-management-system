@@ -1,4 +1,5 @@
 function Generate_cv(){
+    
     let App_name=document.getElementById("Name").value;
     let Template_name1=document.getElementById("Template_name1");
     Template_name1.innerHTML=App_name;
@@ -24,8 +25,10 @@ function Generate_cv(){
     };
     document.getElementById("resume_form").style.display="none";
     document.getElementById("cv_template").style.display="block";
+    
 }
 function print_cv(){
+
     window.print();
 }
 

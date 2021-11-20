@@ -24,7 +24,7 @@ $connect=new mysqli($hostname,$username,$password,$databasename);
         if($count==1)
         {
             echo '<script>alert("Login succesful")</script>';
-            header("Location: demo.php");
+            header("Location: final.php");
             
             /*$firstname =$_POST['fname'];
             $lastname =$_POST['lname'];
