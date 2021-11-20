@@ -1,3 +1,9 @@
+
+
+
+
+
+
 <?php
 
 $hostname="localhost";
@@ -18,7 +24,7 @@ $connect=new mysqli($hostname,$username,$password,$databasename);
         if($count==1)
         {
             echo '<script>alert("Login succesful")</script>';
-            header("Location: databasesave1.php");
+            header("Location: demo.php");
             
             /*$firstname =$_POST['fname'];
             $lastname =$_POST['lname'];

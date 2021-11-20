@@ -29,28 +29,41 @@
                     </div>
 </div>
 
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+<style>
+    table {
+        border-collapse: collapse;
+        align: center;
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+<table align="center">
+    <tr>
+        <th> firstname</th>
+        <th> lastname </th>
+    </tr>
+    <?php
+        $hostname="localhost";
+        $username="root";
+        $password="";
+        $databasename="todo";
+        $conn=new mysqli($hostname,$username,$password,$databasename);
 
+        $query="SELECT * FROM login where skill like '%python%' ";
+        $result= $conn->query($query);
+        if($result->num_rows>0){
+            while($row=$result->fetch_assoc()){
+                echo "<tr><td>" . $row["firstname"] ."</td><td>" . $row['lastname'] ;
+            }
+            echo "</table>";
+        }
 
-
-
-
-
-
-
-
-
-<?php
-
-if (isset($_POST["submit"])) {
-$hostname="localhost";
-$username="root";
-$password="";
-$databasename="todo";
-$connect=new mysqli($hostname,$username,$password,$databasename);
-$query="SELECT * FROM login WHERE skill = '$str'";
-$result=mysqli_query($connect,$query);
-
-$str = $_POST["search"];
-
-
-}
+        else{
+            echo "No results";
+        }
+    ?>

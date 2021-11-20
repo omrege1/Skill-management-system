@@ -24,7 +24,8 @@ if(isset($_POST['submit'])){
     #session_start();
     $firstname =$_POST['fname'];
     $lastname =$_POST['lname'];
-    $sql="UPDATE login SET firstname = '$firstname', lastname = '$lastname' WHERE username= 'admin' ";
+    $skill=$_POST['skill'];
+    $sql="UPDATE login SET firstname = '$firstname', lastname = '$lastname' , skill='$skill' WHERE username= 'admin1' ";
     #$res=mysqli_query($conn,$query);
         if($conn->query($sql)==TRUE){
             echo 'data inserted';
@@ -34,6 +35,7 @@ if(isset($_POST['submit'])){
            echo 'data not inserted';
         }
 
+        
         #session_destroy();
         
         }
@@ -62,7 +64,7 @@ if(isset($_POST['submit'])){
           $connect=new mysqli($hostname,$username,$password,$databasename);
           #session_start();
           #$id=$_SESSION['username'];
-          $sql1="SELECT firstname FROM login WHERE username= 'admin' ";
+          $sql1="SELECT firstname FROM login WHERE username= 'admin1' ";
           $result=mysqli_query($connect,$sql1);
           $count=mysqli_num_rows($result);
           if($count==1){
@@ -82,11 +84,33 @@ if(isset($_POST['submit'])){
           #$id=$i;
          
             
-          $sql1="SELECT lastname FROM login WHERE username= 'admin' ";
+          $sql1="SELECT lastname FROM login WHERE username= 'admin1' ";
           $result1=mysqli_query($connect1,$sql1);
           $count1=mysqli_num_rows($result1);
           if($count1==1){
             $row1=mysqli_fetch_assoc($result1);
             echo $row1['lastname'];}  ?>"> <br><br>
+
+          <label for="skill">Skill:</label>
+
+          <input type="text" id="lname" name="skill" value="<?php 
+$hostname="localhost";
+$username="root";
+$password="";
+$databasename="todo";
+$connect1=new mysqli($hostname,$username,$password,$databasename);
+#session_start();
+#$id=$_SESSION['username'];
+#$id=$i;
+
+  
+$sql1="SELECT skill FROM login WHERE username= 'admin1' ";
+$result1=mysqli_query($connect1,$sql1);
+$count1=mysqli_num_rows($result1);
+if($count1==1){
+  $row1=mysqli_fetch_assoc($result1);
+  echo $row1['skill'];}  ?>"> <br><br>
+
         <input type="submit" name="submit" value="Submit">
+        <input type="submit" name="next" value="Next" formaction="search_bar.php">
   </form>

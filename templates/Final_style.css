@@ -1,0 +1,28 @@
+body {
+    background-repeat: repeat-x;
+  }
+#resume_form{
+    color:#e8e8e8;
+    background-color:#3d3d3d;
+}
+#cv_template{
+    display: none
+}
+.form-control{
+    background-color:#ebebeb;
+
+}
+.profile_pic{
+    border-radius: 60%;
+    width: 200px;
+}
+.left_background{
+    background-color:gray;
+}
+* {box-sizing:border-box}
+
+/* Container for skill bars */
+.container {
+  width: 100%; /* Full width */
+  background-color: #ddd; /* Grey background */
+}
