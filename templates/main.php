@@ -24,33 +24,13 @@ $connect=new mysqli($hostname,$username,$password,$databasename);
         $query="SELECT * from data where username='$user' and password='$password'";
         $result=mysqli_query($connect,$query);
         $count=mysqli_num_rows($result);
-        echo $count;
+        #echo $count;
         if($count==1)
         {
             echo '<script>alert("Login succesful")</script>';
             header("Location: final.php?user=".$user);
             
-            /*$firstname =$_POST['fname'];
-            $lastname =$_POST['lname'];
-            if(isset($_POST['submit']) && !empty($_POST['submit'])){
-            $insertquery="insert into login(firstname,lastname) values('$firstname','$lastname')";
-            $res=mysqli_query($connect,$insertquery);
-            if($res){
-                ?>
-                <script>
-                    alert("data inserted properly");
-                </script>
-                <?php
-            }
-        }
-            else{
-                ?>
-                <script>
-                    alert("data inserted properly");
-                </script>
-                <?php
-            }
-            */
+            
         }
         
         else
@@ -72,6 +52,8 @@ $connect=new mysqli($hostname,$username,$password,$databasename);
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
+<title>HorizonX</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
 <head>
     <style>
         body {
@@ -154,7 +136,7 @@ $connect=new mysqli($hostname,$username,$password,$databasename);
 <div class="sidenav">
          <div class="login-main-text">
             <h2>Application<br> Login Page</h2>
-            <p>Login or register from here to access.</p>
+            <p>Please login.</p>
          </div>
       </div>
       <div class="main">

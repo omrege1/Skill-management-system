@@ -10,7 +10,7 @@ $databasename="todo";
 $conn=new mysqli($hostname,$username,$password,$databasename);
 if($_GET){
     $user=$_GET['user'];
-    echo $user;
+    #echo $user;
 }
 if(isset($_POST['save'])){
   
@@ -48,7 +48,7 @@ if(isset($_POST['save'])){
     $sql="UPDATE data SET Name = '$name', Phone = '$phone', Email='$email', Address='$address', Linkedn='$linkedn', Github='$git', Career='$career', Experience='$work', Qualification='$academic', Proficients='$skill1', Intermediates='$skill2', Basics='$skill3', Certifications='$cer'  WHERE username='$user' ";
     #$res=mysqli_query($conn,$query);
         if($conn->query($sql)==TRUE){
-            echo 'data inserted';
+            #echo 'data inserted';
         }
             
         else{
@@ -84,7 +84,8 @@ if(isset($_POST['save'])){
 <html lang="en">
   <head>
     <!-- Required meta tags -->
-    
+    <title>HorizonX</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
    
@@ -502,7 +503,7 @@ if(isset($_POST['save'])){
                 <div class="card-body"id="Template_cert"><p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Placeat eos temporibus cum quod corporis, non nobis molestiae rerum atque ratione quas, laboriosam facere maiores repellendus debitis iste dignissimos nostrum provident! Modi odio nam, ut mollitia voluptates repudiandae culpa perspiciatis, corporis saepe necessitatibus velit quasi, quibusdam obcaecati. Deserunt quos ipsa nulla.</p></div>
             </div>
             <div class="container mt-3 text-center">
-                <input type="button" onclick="print_cv()" value="Print" class="btn left_background " id="printbtn">
+                <input type="button" onclick="print_cv()" value="Print" class="btn btn-dark btn-large" id="printbtn">
             
             </div>
         </div>
