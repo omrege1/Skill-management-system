@@ -1,12 +1,15 @@
 <?php
 
+#echo $username;
 #$name=$_POST["un"];
 #$id=$name;
 #echo $name;
 session_start();
 if(isset($_POST['submit'])){
-  
-
+  if($_GET){
+    $name=$_GET['user'];
+    echo $name;
+}  
     #session_start();
     #$id=$_SESSION['username'];
     
@@ -25,7 +28,7 @@ if(isset($_POST['submit'])){
     $firstname =$_POST['fname'];
     $lastname =$_POST['lname'];
     $skill=$_POST['skill'];
-    $sql="UPDATE login SET firstname = '$firstname', lastname = '$lastname' , skill='$skill' WHERE username= 'admin1' ";
+    $sql="UPDATE login SET firstname = '$firstname', lastname = '$lastname' , skill='$skill' WHERE username= '$name' ";
     #$res=mysqli_query($conn,$query);
         if($conn->query($sql)==TRUE){
             echo 'data inserted';

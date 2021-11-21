@@ -13,18 +13,22 @@ $databasename="todo";
 $connect=new mysqli($hostname,$username,$password,$databasename);
 
     if(isset($_POST['save']))
-    {   session_start();
-        $username=$_POST['un'];
+    {   
+        $hostname="localhost";
+$username="root";
+$password="";
+$databasename="todo";
+$connect=new mysqli($hostname,$username,$password,$databasename);
+        $user=$_POST['un'];
         $password=$_POST['pw'];
-        $_SESSION['username']=$username;
-        $query="select * from login where username='$username' and password='$password'";
+        $query="SELECT * from data where username='$user' and password='$password'";
         $result=mysqli_query($connect,$query);
         $count=mysqli_num_rows($result);
-        
+        echo $count;
         if($count==1)
         {
             echo '<script>alert("Login succesful")</script>';
-            header("Location: final.php");
+            header("Location: final.php?user=".$user);
             
             /*$firstname =$_POST['fname'];
             $lastname =$_POST['lname'];
@@ -50,8 +54,8 @@ $connect=new mysqli($hostname,$username,$password,$databasename);
         }
         
         else
-        {
-            echo '<script>alert("Login unsuccesful")</script>';
+        {   echo $count;
+            echo '<script>alert("Invalid username or password")</script>';
         }
         
     }
@@ -166,7 +170,6 @@ $connect=new mysqli($hostname,$username,$password,$databasename);
                      <input type="text" name="pw" class="form-control" placeholder="Password" required>
                   </div>
                   <input type="submit" name="save" value="Submit" class="btn btn-black">&nbsp;
-                  <button type="submit" class="btn btn-secondary">Register</button>
                </form>
             </div>
          </div>

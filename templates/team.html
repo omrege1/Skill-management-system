@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.column {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 8px;
+  padding: 0 8px;
+}
+
+@media screen and (max-width: 450px) {
+  .column {
+    width: 60%;
+    display: block;
+  }
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.container {
+  padding: 0 2px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+  max-width: 100px;
+  margin: 0%;
+}
+
+.title {
+  color: grey;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #555;
+}
+</style>
+</head>
+<body>
+
+<h2>MEET THE TEAM</h2>
+<p></p>
+<br>
+
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <img src="om.jpg" alt="OM" style="width:50%">
+      <div class="container">
+        <h2>OM REGE MILIND</h2>
+        <p>Software Eng</p>
+        <p>omregemilind@kpmg.com</p>
+        <p><button class="button">Contact</button></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="sonali.png" alt="SONALI" style="width:50%">
+      <div class="container">
+        <h2>SONALI GUPTA</h2>
+        <p>Data science</p>
+        <p>sonaligupta@kpmg.com</p>
+        <p><button class="button">Contact</button></p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="column">
+    <div class="card">
+      <img src="suhas.jpg" alt="SUHAS" style="width:50%">
+      <div class="container">
+        <h2>SUHAS KULKARNI</h2>
+        <p>Software Eng</p>
+        <p>suhaskulkarni@kpmg.com</p>
+        <p><button class="button">Contact</button></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="column">
+  <div class="card">
+    <img src="karthik.jpg" alt="KARTHIK" style="width:50%">
+    <div class="container">
+      <h2>KARTHIK R PATIL</h2>
+      <p>Data Science</p>
+      <p>karthikrpatil@kpmg.com</p>
+      <p><button class="button">Contact</button></p>
+    </div>
+  </div>
+</div>
+</div>
+<div class="column">
+  <div class="card">
+    <img src="apoorva.png" alt="APOORVA" style="width:50%">
+    <div class="container">
+      <h2>APOORVA M</h2>
+      <p>Software Eng</p>
+      <p>apoorvam@kpmg.com</p>
+      <p><button class="button">Contact</button></p>
+    </div>
+  </div>
+</div>
+</div>
+
+</body>
+</html>

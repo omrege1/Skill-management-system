@@ -16,10 +16,16 @@ body {
     border-radius: 60%;
     width: 200px;
 }
+@media print{
 .left_background{
     background-color:gray;
+}}
+
+@media print{
+    #printbtn{
+        visibility: hidden;
+    }
 }
-* {box-sizing:border-box}
 
 /* Container for skill bars */
 .container {

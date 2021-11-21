@@ -8,6 +8,10 @@ $username="root";
 $password="";
 $databasename="todo";
 $conn=new mysqli($hostname,$username,$password,$databasename);
+if($_GET){
+    $user=$_GET['user'];
+    echo $user;
+}
 if(isset($_POST['save'])){
   
 
@@ -41,7 +45,7 @@ if(isset($_POST['save'])){
     $skill2=$_POST['skill2'];
     $skill3=$_POST['skill3'];
     $cer=$_POST['certifications'];
-    $sql="UPDATE data SET Name = '$name', Phone = '$phone', Email='$email', Address='$address', Linkedn='$linkedn', Github='$git', Career='$career', Experience='$work', Qualification='$academic', Proficients='$skill1', Intermediates='$skill2', Basics='$skill3', Certifications='$cer'  WHERE username='admin' ";
+    $sql="UPDATE data SET Name = '$name', Phone = '$phone', Email='$email', Address='$address', Linkedn='$linkedn', Github='$git', Career='$career', Experience='$work', Qualification='$academic', Proficients='$skill1', Intermediates='$skill2', Basics='$skill3', Certifications='$cer'  WHERE username='$user' ";
     #$res=mysqli_query($conn,$query);
         if($conn->query($sql)==TRUE){
             echo 'data inserted';
@@ -55,6 +59,11 @@ if(isset($_POST['save'])){
         #session_destroy();
         
         }
+
+        if(isset($_POST['logout'])){
+        header("Location: website.html");
+    }
+    
         
       
     
@@ -102,7 +111,11 @@ if(isset($_POST['save'])){
           $connect=new mysqli($hostname,$username,$password,$databasename);
           #session_start();
           #$id=$_SESSION['username'];
-          $sql1="SELECT Name FROM data WHERE username= 'admin' ";
+          if($_GET){
+            $user=$_GET['user'];
+            #echo $user;
+        }
+          $sql1="SELECT Name FROM data WHERE username= '$user' ";
           $result=mysqli_query($connect,$sql1);
           $count=mysqli_num_rows($result);
           if($count==1){
@@ -127,7 +140,7 @@ if(isset($_POST['save'])){
           $count=mysqli_num_rows($result);
           if($count==1){
             $row=mysqli_fetch_assoc($result);
-            echo $row['firstname'];} #session_destroy();?>" required>
+            echo $row['firstname'];} #session_destroy();?>">
 
 
 
@@ -146,7 +159,11 @@ if(isset($_POST['save'])){
           $connect=new mysqli($hostname,$username,$password,$databasename);
           #session_start();
           #$id=$_SESSION['username'];
-          $sql1="SELECT Phone FROM data WHERE username= 'admin' ";
+          if($_GET){
+            $user=$_GET['user'];
+            #echo $user;
+        }
+          $sql1="SELECT Phone FROM data WHERE username= '$user' ";
           $result=mysqli_query($connect,$sql1);
           $count=mysqli_num_rows($result);
           if($count==1){
@@ -166,7 +183,11 @@ if(isset($_POST['save'])){
           $connect=new mysqli($hostname,$username,$password,$databasename);
           #session_start();
           #$id=$_SESSION['username'];
-          $sql1="SELECT Email FROM data WHERE username= 'admin' ";
+          if($_GET){
+            $user=$_GET['user'];
+            #echo $user;
+        }
+          $sql1="SELECT Email FROM data WHERE username= '$user' ";
           $result=mysqli_query($connect,$sql1);
           $count=mysqli_num_rows($result);
           if($count==1){
@@ -186,7 +207,11 @@ if(isset($_POST['save'])){
           $connect=new mysqli($hostname,$username,$password,$databasename);
           #session_start();
           #$id=$_SESSION['username'];
-          $sql1="SELECT Address FROM data WHERE username= 'admin' ";
+          if($_GET){
+            $user=$_GET['user'];
+            #echo $user;
+        }
+          $sql1="SELECT Address FROM data WHERE username= '$user' ";
           $result=mysqli_query($connect,$sql1);
           $count=mysqli_num_rows($result);
           if($count==1){
@@ -207,7 +232,11 @@ if(isset($_POST['save'])){
           $connect=new mysqli($hostname,$username,$password,$databasename);
           #session_start();
           #$id=$_SESSION['username'];
-          $sql1="SELECT Linkedn FROM data WHERE username= 'admin' ";
+          if($_GET){
+            $user=$_GET['user'];
+            #echo $user;
+        }
+          $sql1="SELECT Linkedn FROM data WHERE username= '$user' ";
           $result=mysqli_query($connect,$sql1);
           $count=mysqli_num_rows($result);
           if($count==1){
@@ -227,7 +256,11 @@ if(isset($_POST['save'])){
           $connect=new mysqli($hostname,$username,$password,$databasename);
           #session_start();
           #$id=$_SESSION['username'];
-          $sql1="SELECT Github FROM data WHERE username= 'admin' ";
+          if($_GET){
+            $user=$_GET['user'];
+            #echo $user;
+        }
+          $sql1="SELECT Github FROM data WHERE username= '$user' ";
           $result=mysqli_query($connect,$sql1);
           $count=mysqli_num_rows($result);
           if($count==1){
@@ -249,7 +282,11 @@ if(isset($_POST['save'])){
           $connect=new mysqli($hostname,$username,$password,$databasename);
           #session_start();
           #$id=$_SESSION['username'];
-          $sql1="SELECT Career FROM data WHERE username= 'admin' ";
+          if($_GET){
+            $user=$_GET['user'];
+            #echo $user;
+        }
+          $sql1="SELECT Career FROM data WHERE username= '$user' ";
           $result=mysqli_query($connect,$sql1);
           $count=mysqli_num_rows($result);
           if($count==1){
@@ -267,7 +304,11 @@ if(isset($_POST['save'])){
           $connect=new mysqli($hostname,$username,$password,$databasename);
           #session_start();
           #$id=$_SESSION['username'];
-          $sql1="SELECT Experience FROM data WHERE username= 'admin' ";
+          if($_GET){
+            $user=$_GET['user'];
+            #echo $user;
+        }
+          $sql1="SELECT Experience FROM data WHERE username= '$user' ";
           $result=mysqli_query($connect,$sql1);
           $count=mysqli_num_rows($result);
           if($count==1){
@@ -285,7 +326,11 @@ if(isset($_POST['save'])){
           $connect=new mysqli($hostname,$username,$password,$databasename);
           #session_start();
           #$id=$_SESSION['username'];
-          $sql1="SELECT Qualification FROM data WHERE username= 'admin' ";
+          if($_GET){
+            $user=$_GET['user'];
+            #echo $user;
+        }
+          $sql1="SELECT Qualification FROM data WHERE username= '$user' ";
           $result=mysqli_query($connect,$sql1);
           $count=mysqli_num_rows($result);
           if($count==1){
@@ -304,7 +349,11 @@ if(isset($_POST['save'])){
           $connect=new mysqli($hostname,$username,$password,$databasename);
           #session_start();
           #$id=$_SESSION['username'];
-          $sql1="SELECT Proficients FROM data WHERE username= 'admin' ";
+          if($_GET){
+            $user=$_GET['user'];
+            #echo $user;
+        }
+          $sql1="SELECT Proficients FROM data WHERE username= '$user' ";
           $result=mysqli_query($connect,$sql1);
           $count=mysqli_num_rows($result);
           if($count==1){
@@ -324,7 +373,11 @@ if(isset($_POST['save'])){
           $connect=new mysqli($hostname,$username,$password,$databasename);
           #session_start();
           #$id=$_SESSION['username'];
-          $sql1="SELECT Intermediates FROM data WHERE username= 'admin' ";
+          if($_GET){
+            $user=$_GET['user'];
+            #echo $user;
+        }
+          $sql1="SELECT Intermediates FROM data WHERE username= '$user' ";
           $result=mysqli_query($connect,$sql1);
           $count=mysqli_num_rows($result);
           if($count==1){
@@ -344,7 +397,11 @@ if(isset($_POST['save'])){
           $connect=new mysqli($hostname,$username,$password,$databasename);
           #session_start();
           #$id=$_SESSION['username'];
-          $sql1="SELECT Basics FROM data WHERE username= 'admin' ";
+          if($_GET){
+            $user=$_GET['user'];
+            #echo $user;
+        }
+          $sql1="SELECT Basics FROM data WHERE username= '$user' ";
           $result=mysqli_query($connect,$sql1);
           $count=mysqli_num_rows($result);
           if($count==1){
@@ -364,7 +421,11 @@ if(isset($_POST['save'])){
           $connect=new mysqli($hostname,$username,$password,$databasename);
          
           #$id=$_SESSION['username'];
-          $sql1="SELECT Certifications FROM data WHERE username= 'admin' ";
+          if($_GET){
+            $user=$_GET['user'];
+            #echo $user;
+        }
+          $sql1="SELECT Certifications FROM data WHERE username= '$user' ";
           $result=mysqli_query($connect,$sql1);
           $count=mysqli_num_rows($result);
           if($count==1){
@@ -375,10 +436,13 @@ if(isset($_POST['save'])){
 
         </div>
 
+    
        
-    <div class="container text-center mt-2">
-            <input type="submit" onclick="Generate_cv(); return false"class="btn btn-primary btn-large" value="GenerateResume">
-            <input type="submit"  name="save" class="btn btn-primary btn-sm"  value="Save">
+    <div class="container text-center mt-5">
+            <input type="submit" onclick="Generate_cv(); return false"class="btn btn-dark btn-large" value="GenerateResume">&nbsp;&nbsp;
+            <input type="submit"  name="save" class="btn btn-dark btn-large"  value="Save">&nbsp;&nbsp;
+            <input type="submit"  name="logout" class="btn btn-dark btn-large"  value="Logout">
+
            
            
     </div>
@@ -438,7 +502,7 @@ if(isset($_POST['save'])){
                 <div class="card-body"id="Template_cert"><p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Placeat eos temporibus cum quod corporis, non nobis molestiae rerum atque ratione quas, laboriosam facere maiores repellendus debitis iste dignissimos nostrum provident! Modi odio nam, ut mollitia voluptates repudiandae culpa perspiciatis, corporis saepe necessitatibus velit quasi, quibusdam obcaecati. Deserunt quos ipsa nulla.</p></div>
             </div>
             <div class="container mt-3 text-center">
-                <button onclick="print_cv()" class="btn left_background">PRINT RESUME</button>
+                <input type="button" onclick="print_cv()" value="Print" class="btn left_background " id="printbtn">
             
             </div>
         </div>

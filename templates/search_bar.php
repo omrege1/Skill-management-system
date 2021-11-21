@@ -15,11 +15,11 @@
                                     </div>
                                     <!--end of col-->
                                     <div class="col">
-                                        <input class="form-control form-control-lg form-control-borderless "  type="search" name="search" placeholder="Search skill">
+                                        <input class="form-control form-control-lg form-control-borderless "  type="search" name="search" placeholder="Search skill" required>
                                     </div>
                                     <!--end of col-->
                                     <div class="col-auto">
-                                        <button class="btn btn-lg btn-success" type="submit" name="submit">Search</button>
+                                        <button class="btn btn-lg btn-dark" type="submit" name="submit">Search</button>
                                     </div>
                                     <!--end of col-->
                                 </div>
@@ -44,23 +44,28 @@
 <body>
 <table align="center" width="600" border="1" cellpadding="1" cellspacing="1">
     <tr>
-        <th> firstname</th>
-        <th> lastname </th>
+        <th> Name</th>
+        <th>email</th>
+        <th>Basic skill</th>
+        <th>Intermediate skill</th>
+        <th>Proficient skill</th>
     </tr>
     <?php
-        $search=$_POST["search"];
-        if(isset($_POST['submit'])){
+        
+        if(isset($_POST["search"]) && isset($_POST['submit'])  ){
         $hostname="localhost";
         $username="root";
         $password="";
         $databasename="todo";
         $conn=new mysqli($hostname,$username,$password,$databasename);
+
+        $search=$_POST["search"];
         
-        $query="SELECT * FROM login where skill like '%$search%' ";
+        $query="SELECT * FROM data where Proficients like '%$search%' OR Intermediates like '%$search%' OR Basics like '%$search%' ";
         $result= $conn->query($query);
         if($result->num_rows>0){
             while($row=$result->fetch_assoc()){
-                echo "<tr><td>" . $row["firstname"] ."</td><td>" . $row['lastname'] ;
+                echo "<tr><td>" . $row["Name"] ."</td><td>" . $row['Email'] ."</td><td>" . $row['Basics'] ."</td><td>" . $row['Intermediates'] ."</td><td>" . $row['Proficients'];
             }
             echo "</table>";
         }
