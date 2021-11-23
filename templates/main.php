@@ -149,7 +149,7 @@ $connect=new mysqli($hostname,$username,$password,$databasename);
                   </div>
                   <div class="form-group">
                      <label><h2>Password<h2></label>
-                     <input type="text" name="pw" class="form-control" placeholder="Password" required>
+                     <input type="password" name="pw" class="form-control" placeholder="Password" required>
                   </div>
                   <input type="submit" name="save" value="Submit" class="btn btn-black">&nbsp;
                </form>
